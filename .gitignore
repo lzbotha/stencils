@@ -1,5 +1,5 @@
 .DS_Store
 .idea/
-images/
-stencils/
+images/*
+stencils/*
 venv/
