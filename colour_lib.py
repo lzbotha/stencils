@@ -11,12 +11,14 @@ def make_colour_visualizer(colour_func, height=200, width_scale=1):
     """
     _image = np.zeros((height, width_scale*256, 3), dtype=int)
 
-    for col in range(0, _image.shape[1]):
-        for row in range(0, _image.shape[0] / 2):
-            _image[row][col] = colour_func(col)
+    for col in range(0, 256):
+        for w in range(width_scale):
+            for row in range(0, _image.shape[0] / 2):
+                col_adjusted = col*width_scale+w
+                _image[row][col_adjusted] = colour_func(col)
 
-        for row in range(_image.shape[0] / 2, _image.shape[0]):
-            _image[row][col] = np.asarray([col, col, col])
+            for row in range(_image.shape[0] / 2, _image.shape[0]):
+                _image[row][col_adjusted] = np.asarray([col, col, col])
 
     return _image
 
