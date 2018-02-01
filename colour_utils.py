@@ -50,7 +50,6 @@ class ColourFuncBuilder:
         :param end_index:
         :return:
         """
-
         def interp_colour(shade):
             return start_colour + ((end_colour - start_colour) / 255.0) * shade
 
